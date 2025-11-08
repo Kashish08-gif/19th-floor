@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>The 19th Floor - Floor 1</title>
+  <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+</head>
+
+<body>
+  <a-scene>
+    <a-assets>
+      <img id="wallTex" src="assets/textures/wall.jpg">
+      <img id="floorTex" src="assets/textures/floor.jpg">
+      <img id="doorTex" src="assets/textures/door.jpg">
+      <img id="outsideTex" src="assets/textures/outside.jpg">
+      <audio id="bgm" src="assets/sounds/creepy.mp3"></audio>
+      <audio id="doorSound" src="assets/sounds/door.mp3"></audio>
+    </a-assets>
+
+    <!-- Background music -->
+    <a-sound id="bgmSound" src="#bgm" loop="true" volume="0.6" autoplay="true"></a-sound>
+
+    <!-- Lights -->
+    <a-light type="ambient" intensity="0.6"></a-light>
+    <a-light id="pointLight" type="point" position="0 3 0" intensity="1.2" color="#ffcc88"></a-light>
+
+    <!-- Floor -->
+    <a-plane position="0 0 -5" rotation="-90 0 0" width="10" height="10"
+      material="src: #floorTex; repeat: 3 3"></a-plane>
+
+    <!-- Room walls -->
+    <a-box position="0 2 -10" width="10" height="4" depth="0.2" material="src: #wallTex; repeat: 2 1"></a-box>
+    <a-box position="-5 2 -5" width="0.2" height="4" depth="10" material="src: #wallTex; repeat: 2 1"></a-box>
+    <a-box position="5 2 -5" width="0.2" height="4" depth="10" material="src: #wallTex; repeat: 2 1"></a-box>
+
+    <!-- Door (clickable) -->
+    <a-box id="door" position="0 1 -9.9" width="1.5" height="2.5" depth="0.1" material="src: #doorTex; color: #663300"
+      class="clickable"></a-box>
+
+    <!-- Door sound entity -->
+    <a-entity id="doorAudioEntity" sound="src: #doorSound; volume: 1"></a-entity>
+
+    <!-- Outside area -->
+
+
+    <!-- Player -->
+    <a-entity id="player" camera look-controls wasd-controls position="0 1.6 0"></a-entity>
+
+    <a-sky color="#111"></a-sky>
+  </a-scene>
+
+</body>
+
+</html>
