@@ -21,7 +21,7 @@
     </a-assets>
 
     <!-- Background music -->
-    <a-sound id="bgmSound" src="#bgm" loop="true" volume="0.6" autoplay="true"></a-sound>
+    <a-sound id="bgmSound" src="#bgm" loop="false" volume="0.6" autoplay="true"></a-sound>
 
     <!-- Lights -->
     <a-light type="ambient" intensity="0.6"></a-light>
@@ -47,7 +47,15 @@
 
 
     <!-- Player -->
-    <a-entity id="player" camera look-controls wasd-controls position="0 1.6 0"></a-entity>
+    <a-entity
+        id="player"
+        camera
+        look-controls
+        wasd-controls
+        position="0 1.6 0"
+        raycaster="objects: .clickable"
+        cursor="rayOrigin: mouse"
+    ></a-entity>
 
     <a-sky color="#111"></a-sky>
   </a-scene>
